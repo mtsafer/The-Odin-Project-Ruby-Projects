@@ -6,7 +6,7 @@ class TicTacToe
 		@row1 = Row.new()
 		@row2 = Row.new()
 		@row3 = Row.new()
-		@border = "-----"
+		@border = "---------"
 	end
 
 	def new_game
@@ -19,7 +19,7 @@ class TicTacToe
 		puts "	" + @row1.view
 		puts "	" + @border
 		puts "	" + @row2.view
-		puts "	" + @border
+		puts "	" + @border.reverse
 		puts "	" + @row3.view
 	end
 
@@ -39,8 +39,8 @@ class TicTacToe
 
 	def has_ended?
 		ended = false
-		ended = check_winner('X') unless ended
-		ended = check_winner('O') unless ended
+		ended = check_winner(['X', "-"]) unless ended
+		ended = check_winner(['O', "-"]) unless ended
 		ended = check_full_board unless ended
 		ended
 	end
@@ -71,7 +71,7 @@ class TicTacToe
 			for i in 1..3
 				row = find_row(i)
 				for j in 1..3
-					full = false if row.column(j) == " "
+					full = false if row.column(j) == "-"
 				end
 			end
 			return "nobody" if full
