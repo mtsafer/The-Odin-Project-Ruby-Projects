@@ -37,6 +37,7 @@ class Hangman
 
 	#prints the 'game board' to the console
 	def look
+		#This is for the animation
 		lines = []
 		lines << "#{@fill_in_word}"
 		lines << ""

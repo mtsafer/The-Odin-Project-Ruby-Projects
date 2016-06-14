@@ -59,7 +59,7 @@ load ? game = load : game = Hangman.new
 puts "Type save at any point to save the game"
 
 until game.ended?
-	game.look.each_with_index do |line, index|
+	game.look.each_with_index do |line, index| #this has to do with the animation
 		until line.length >= 30
 			line += " "
 		end
