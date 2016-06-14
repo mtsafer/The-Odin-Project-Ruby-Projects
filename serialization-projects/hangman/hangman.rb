@@ -25,6 +25,10 @@ class Hangman
 												  "   ^   ||"]
 	end
 
+	def dictionary
+		@dictionary
+	end
+
 	#returns the secret
 	def peek
 		@secret_save
