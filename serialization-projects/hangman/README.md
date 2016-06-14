@@ -1,4 +1,5 @@
-<h1>Hangman</h1>
+<h1>Hangman v2.0</h1>
+<h2>Now with bad ASCII art!</h2>
 <br>
 <p>The game is run in the terminal. Enter 'ruby play.rb' into the terminal.</p>
 <p>The game will ask you if you want to load a game, enter 'y' or 'n' for yes or no respectively.</p>

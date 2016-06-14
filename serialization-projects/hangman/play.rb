@@ -55,11 +55,17 @@ private
 public
 
 load = load_game
-load ? game = load : game = Hangman.new 
+load ? game = load : game = Hangman.new
 puts "Type save at any point to save the game"
 
 until game.ended?
-	game.look
+	game.look.each_with_index do |line, index|
+		until line.length >= 30
+			line += " "
+		end
+		line += game.drawing[index]
+		puts line
+	end
 	guess = game.guess_letter
 	save(game) if guess == "save"
 end

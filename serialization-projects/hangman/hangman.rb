@@ -10,7 +10,19 @@ class Hangman
 		@guessed_letters = []
 		@bad_guesses = []
 		@turns = 0
+		@bad_guess_count = 0 # for the animation
 		@fill_in_word = ("_ "*@secret.length).strip
+		@drawing = ["    -----",
+								"       ||",
+								"       ||",
+								"       ||",
+								"       ||",
+								" ______||______",
+								"|______||______|\n\n"]
+		@drawing_animation = ["    |  ||",
+													"   0   ||",
+													"   T   ||",
+												  "   ^   ||"]
 	end
 
 	#returns the secret
@@ -18,12 +30,21 @@ class Hangman
 		@secret_save
 	end
 
+	#returns the drawing
+	def drawing
+		@drawing
+	end
+
 	#prints the 'game board' to the console
 	def look
-		puts "\n#{@fill_in_word}"
-		puts "\nincorrect letters: #{@bad_guesses.join(", ")}"
-		puts "\nturn: #{@turns}"
-		puts "\nbad guesses left: #{@guesses}\n\n"
+		lines = []
+		lines << "#{@fill_in_word}"
+		lines << ""
+		lines << "incorrect letters: #{@bad_guesses.join(", ")}"
+		lines << ""
+		lines << "turn: #{@turns}"
+		lines << ""
+		lines << "bad guesses left: #{@guesses}"
 	end
 
 	#Prompts a user for a guess
@@ -72,6 +93,8 @@ class Hangman
 				puts "Bad guess..."
 				@bad_guesses << guess
 				@guesses -= 1
+				@drawing[@bad_guess_count+1] = @drawing_animation[@bad_guess_count]
+				@bad_guess_count += 1
 			end
 
 			while @secret.include? guess
