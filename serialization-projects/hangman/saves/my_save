@@ -1,0 +1,26 @@
+--- !ruby/object:Hangman
+dictionary: !ruby/object:Dictionary {}
+secret:
+- " "
+- x
+- p
+- " "
+- r
+- g
+- " "
+- " "
+- " "
+secret_save: expurgate
+guesses: 3
+guessed_letters:
+- a
+- e
+- i
+- o
+- u
+- t
+bad_guesses:
+- i
+- o
+turns: 6
+fill_in_word: e _ _ u _ _ a t e

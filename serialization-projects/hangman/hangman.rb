@@ -31,6 +31,7 @@ class Hangman
 	def guess_letter
 		print "Your guess: "
 		guess = gets.chomp.downcase
+		return guess if guess == "save"
 		if (guess.between?('a','z') && !(@guessed_letters.include? guess)\
 			&& guess.length == 1)
 			process_guess(guess)

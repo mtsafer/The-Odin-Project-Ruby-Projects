@@ -12,10 +12,7 @@ class Dictionary
 		@dictionary.each do |word|
 			sub_dictionary << word if word.length.between?(min, max)
 		end
+		remove_instance_variable(:@dictionary)
 		sub_dictionary[rand(sub_dictionary.length)]
-	end
-
-	def includes?(word)
-		@dictionary.includes? word
 	end
 end
