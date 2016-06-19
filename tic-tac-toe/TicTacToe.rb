@@ -2,6 +2,8 @@ class TicTacToe
 	
 	require_relative './Row'
 
+	attr_reader :row1, :row2, :row3
+
 	def initialize
 		@row1 = Row.new()
 		@row2 = Row.new()
@@ -27,7 +29,7 @@ class TicTacToe
 		row = find_row(nth_row)
 		if row
 			if row.spot_available(column)
-			set_helper(row, column, token)
+				column = set_helper(row, column, token)
 			else
 				puts "Spot taken!"
 				return false
@@ -39,8 +41,8 @@ class TicTacToe
 
 	def has_ended?
 		ended = false
-		ended = check_winner(['X', "-"]) unless ended
-		ended = check_winner(['O', "-"]) unless ended
+		ended = check_winner('X') unless ended
+		ended = check_winner('O') unless ended
 		ended = check_full_board unless ended
 		ended
 	end
